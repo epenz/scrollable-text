@@ -1,12 +1,12 @@
 {
   "kind": "column",
-  "name": "Custom Bar Chart",
+  "name": "Scrollable Text",
   "description": "",
   "author": "Thinh Dinh - LowCode Agency",
   "params": [
     {
       "name": "data",
-      "displayName": "Timeline data",
+      "displayName": "Text data",
       "type": "string"
     },
     {
@@ -16,17 +16,7 @@
     },
     {
       "name": "height",
-      "displayName": "Height (default: 500px)",
-      "type": "number"
-    },
-    {
-      "name": "barNames",
-      "displayName": "Bar labels",
-      "type": "string"
-    },
-    {
-      "name": "threshold",
-      "displayName": "Threshold (default: 100)",
+      "displayName": "Height (default: 100%)",
       "type": "number"
     }
   ],
