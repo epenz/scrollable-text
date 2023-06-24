@@ -15,7 +15,7 @@ window.function = function (textInput, width, height) {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: ${height}%;
+        height: ${height}px;
         width: ${width}%;
         margin: 0;
         padding: 10px;
