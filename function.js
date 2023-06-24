@@ -1,109 +1,37 @@
-window.function = function (data, width, height, barNames, threshold) {
-  // data
-  data = data.value ?? "";
-  width = width.value ?? "100vw";  // use viewport width units
-  height = height.value ?? "500px"; // use pixel units
-  barNames = barNames.value ?? ""; // bar names should be comma-separated
-  threshold = threshold.value ?? "100";
-
-  // convert barNames string to array
-  let barNameArray = barNames.split(',');
+window.function = function (textInput, width, height) {
+  // Data input
+  textInput = textInput.value ?? "";
+  width = width.value ?? 100;
+  height = height.value ?? 100;
 
   let ht = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bar Chart with Chart.js</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <title>Scrollable Text Input</title>
     <style>
+    
       body {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: ${height}%;
+        width: ${width}%;
         margin: 0;
+        padding: 10px;
       }
+      
+      textarea {
+        width: 100%;
+        height: 100%;
+        resize: none;
+        overflow-y: scroll;
+      }
+      
     </style>
   </head>
   <body>
-    <canvas id="myBarChart" style="width: ${width}; height: ${height};"></canvas>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const ctx = document.getElementById('myBarChart').getContext('2d');
-        const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
-        const data = {
-          labels: ${JSON.stringify(barNameArray)},
-          datasets: [
-            {
-              label: "Total Payout",
-              data: [${data}],
-              backgroundColor: '#4622B0',
-              borderColor: '#4622B0',
-              borderWidth: 1,
-              barThickness: 50
-            }
-          ]
-        };
-
-        const options = {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                display: true,
-                color: '#000000'
-              },
-              grid: {
-                color: 'rgba(255, 255, 255, 0)'
-              },
-            }
-          },
-          plugins: {
-            annotation: {
-              annotations: {
-                line1: {
-                  type: 'line',
-                  yMin: ${threshold},
-                  yMax: ${threshold},
-                  borderColor: '#8B0000',
-                  borderWidth: 4,
-                  label: {
-                    enabled: true,
-                    content: 'Target: ${threshold}',
-                    position: 'start',
-                    yAdjust: -15,
-                    backgroundColor: 'rgba(255, 0, 0, 0.3)'
-                  }
-                }
-              }
-            },
-            legend: {
-              display: false
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  let label = context.dataset.label || '';
-                  if (context.parsed.y !== null) {
-                    label += ': $' + context.parsed.y;
-                  }
-                  return label;
-                }
-              }
-            }
-          }
-        };
-
-        const myBarChart = new Chart(ctx, {
-          type: 'bar',
-          data: data,
-          options: options
-        });
-      });
-    </script>
+    <textarea>${input}</textarea>
   </body>
 </html>
 `;
