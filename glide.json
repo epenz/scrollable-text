@@ -5,7 +5,7 @@
   "author": "Thinh Dinh - LowCode Agency",
   "params": [
     {
-      "name": "data",
+      "name": "textInput",
       "displayName": "Text data",
       "type": "string"
     },
