@@ -19,13 +19,12 @@ window.function = function (textInput, width, height) {
         width: ${width}%;
         margin: 0;
         padding: 10px;
+        font-family: Inter, -apple-system, "system-ui", Roboto, sans-serif;
       }
       
       textarea {
         width: 100%;
         height: 100%;
-        resize: none;
-        overflow-y: scroll;
       }
       
     </style>
