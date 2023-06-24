@@ -31,7 +31,7 @@ window.function = function (textInput, width, height) {
     </style>
   </head>
   <body>
-    <textarea>${input}</textarea>
+    <textarea>${textInput}</textarea>
   </body>
 </html>
 `;
