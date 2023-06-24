@@ -16,7 +16,7 @@
     },
     {
       "name": "height",
-      "displayName": "Height (default: 100%)",
+      "displayName": "Height (default: 500px)",
       "type": "number"
     }
   ],
